@@ -5,21 +5,23 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.AfterMethod;
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import javax.swing.*;
 
 public class LoginTC extends TestBase{
-    public WebDriver driver;
+//public WebDriver driver;
     @BeforeMethod
     public void predefineData() throws InterruptedException {
-        driver=setupDriver();
+        setupDriver();
     }
     @AfterMethod
     public void postExecute()
     {
         driverQuit();
+
 
     }
     @Test

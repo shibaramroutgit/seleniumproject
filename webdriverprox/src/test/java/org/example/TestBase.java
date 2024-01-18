@@ -8,11 +8,12 @@ import org.openqa.selenium.ie.InternetExplorerDriver;
 import java.time.Duration;
 
 public class TestBase {
-    public WebDriver driver=null;
+
+    public    WebDriver driver=null;
     public String browserName = String.valueOf(BrowserTypes.CHROME);
 
+
     public WebDriver setupDriver() throws InterruptedException {
-        if(driver==null) {
             switch (browserName) {
                 case "CHROME":
                     driver = new ChromeDriver();
@@ -20,23 +21,23 @@ public class TestBase {
                     driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
                     driver.get("https://myqaandqc.blogspot.com/");
                     Thread.sleep(10000);
-                break;
+                    break;
                 case "FIREFOX":
                     driver = new FirefoxDriver();
-                break;
+                    break;
                 case "EDGE":
                     driver = new InternetExplorerDriver();
-                break;
+                    break;
                 default:
                     System.out.println("No Browser");
             }
-        }
             return driver;
     }
 
     public void driverQuit()
     {
         driver.quit();
+        System.out.println(driver.toString());
     }
     public void tx()
     {
