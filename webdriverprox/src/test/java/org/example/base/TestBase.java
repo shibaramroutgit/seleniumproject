@@ -1,16 +1,25 @@
-package org.example;
+package org.example.base;
 
+import org.example.pages.JenkinsBasicPage;
+import org.example.pages.TestngParalela;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.testng.asserts.SoftAssert;
 
 import java.time.Duration;
 
 public class TestBase {
 
     public    WebDriver driver=null;
+    public SoftAssert softAssert;
     public String browserName = String.valueOf(BrowserTypes.CHROME);
+
+    public SoftAssert setSoftAssert()
+    {
+        return new SoftAssert();
+    }
 
 
     public WebDriver setupDriver() throws InterruptedException {
@@ -39,14 +48,19 @@ public class TestBase {
         driver.quit();
         System.out.println(driver.toString());
     }
-    public void tx()
+
+
+
+    public TestngParalela getTestngParalela()
     {
-        System.out.println(browserName);
+        return new TestngParalela(driver);
     }
 
-    /*public static void main(String[] args) {
-        TestBase t = new TestBase();
-        t.tx();
-    }*/
+
+
+    public JenkinsBasicPage getJenkinsBasicPage()
+    {
+        return new JenkinsBasicPage(driver);
+    }
 
 }
