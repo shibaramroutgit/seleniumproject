@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <test verbose="2" preserve-order="true" name="E:/GitHubWorks/webdriver/webdriverprox">
+        <classes>
+            <class name="org.example.LoginTC">
+                <methods>
+                    <include name="TC1"/>
+                    <include name="TC2"/>
+                    <include name="TC3"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
