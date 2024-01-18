@@ -27,7 +27,7 @@ public class TestBase {
                 case "CHROME":
                     driver = new ChromeDriver();
                     driver.manage().window().maximize();
-                    driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+                    driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
                     driver.get("https://myqaandqc.blogspot.com/");
                     Thread.sleep(10000);
                     break;
