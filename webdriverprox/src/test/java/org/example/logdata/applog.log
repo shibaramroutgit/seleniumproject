@@ -1,0 +1,9 @@
+
+14:05:58.667 [main] INFO  org.example.testcases.JenkinB - JenkinB.TC1:34 - AB1
+14:05:58.748 [main] INFO  org.example.testcases.JenkinB - JenkinB.TC1:38 - All2
+14:06:16.199 [main] INFO  org.example.testcases.JenkinB - JenkinB.TC2:44 - AB3
+14:06:16.239 [main] INFO  org.example.testcases.JenkinB - JenkinB.TC2:48 - Al4
+14:06:36.056 [main] INFO  org.example.testcases.TestNG - TestNG.TC1:31 - AB5
+14:06:36.121 [main] INFO  org.example.testcases.TestNG - TestNG.TC1:35 - All6
+14:06:55.662 [main] INFO  org.example.testcases.TestNG - TestNG.TC2:41 - AB7
+14:06:55.727 [main] INFO  org.example.testcases.TestNG - TestNG.TC2:45 - All8

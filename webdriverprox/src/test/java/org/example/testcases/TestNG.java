@@ -16,7 +16,7 @@ public SoftAssert softAssert;
     public void predefineData() throws InterruptedException {
         setupDriver();
         testngParalela=getTestngParalela();
-        softAssert = setSoftAssert();
+        softAssert = new SoftAssert();
     }
     @AfterMethod
     public void postExecute()
@@ -28,17 +28,21 @@ public SoftAssert softAssert;
     public void TC1() throws InterruptedException {
         System.out.println("TC1");
         testngParalela.navigateToTestngParalelaMenu();
+        logger.info("AB5");
         String val = testngParalela.validateTestngPageHeader();
         softAssert.assertEquals(val,"TestNG Paralela");
         softAssert.assertAll();
+        logger.info("All6");
     }
     @Test
     public void TC2() throws InterruptedException {
         System.out.println("TC2");
         testngParalela.navigateToTestngParalelaMenu();
+        logger.info("AB7");
         String val = testngParalela.validateTestngPageHeader();
         softAssert.assertEquals(val,"TestNG Paralela");
         softAssert.assertAll();
+        logger.info("All8");
     }
 
 }

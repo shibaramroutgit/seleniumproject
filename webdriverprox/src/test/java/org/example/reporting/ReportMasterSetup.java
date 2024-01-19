@@ -11,7 +11,7 @@ public class ReportMasterSetup {
     {
         Date d  = new Date();
         String fileName = "Extent_"+ d.toString().replace(":", "_").replace(" ", "_")+".html";
-        ExtentSparkReporter extentSparkReporter = new ExtentSparkReporter(System.getProperty("user.dir")+"\\src\\test\\TestReportDir"+fileName);
+        ExtentSparkReporter extentSparkReporter = new ExtentSparkReporter("src\\test\\TestReportDir\\"+fileName);
         extentSparkReporter.config().setTheme(Theme.STANDARD);
         extentSparkReporter.config().setDocumentTitle(fileName);
         extentSparkReporter.config().setEncoding("utf-8");
@@ -26,4 +26,5 @@ public class ReportMasterSetup {
         return extentReports;
 
     }
+
 }

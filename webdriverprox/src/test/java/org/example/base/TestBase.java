@@ -1,25 +1,24 @@
 package org.example.base;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.example.pages.JenkinsBasicPage;
 import org.example.pages.TestngParalela;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.testng.annotations.BeforeSuite;
 import org.testng.asserts.SoftAssert;
 
 import java.time.Duration;
 
 public class TestBase {
 
-    public    WebDriver driver=null;
-    public SoftAssert softAssert;
-    public String browserName = String.valueOf(BrowserTypes.CHROME);
-
-    public SoftAssert setSoftAssert()
-    {
-        return new SoftAssert();
-    }
+    public   WebDriver driver=null;
+    public  String browserName = String.valueOf(BrowserTypes.CHROME);
+    public   SoftAssert  softAssert;
+    public  final Logger logger = LogManager.getLogger(getClass());
 
 
     public WebDriver setupDriver() throws InterruptedException {
@@ -62,5 +61,7 @@ public class TestBase {
     {
         return new JenkinsBasicPage(driver);
     }
+
+
 
 }
