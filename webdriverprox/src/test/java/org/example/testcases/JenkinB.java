@@ -36,6 +36,11 @@ public class JenkinB extends TestBase {
         softAssert.assertEquals(val,"Jenkins Basic");
         softAssert.assertAll();
         logger.info("All2");
+        logger.debug("Debug message");
+        logger.info("Info message");
+        logger.warn("Warning message");
+        logger.error("Error message");
+        logger.fatal("Fatal message");
     }
     @Test
     public void TC2() throws InterruptedException {
@@ -46,6 +51,11 @@ public class JenkinB extends TestBase {
         softAssert.assertEquals(val,"Jenkins Basic");
         softAssert.assertAll();
         logger.info("Al4");
+        logger.debug("Debug message");
+        logger.info("Info message");
+        logger.warn("Warning message");
+        logger.error("Error message");
+        logger.fatal("Fatal message");
     }
 
 }

@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Configuration status="WARN">
     <Appenders>
+        <!-- Console Appender -->
         <Console name="Console" target="SYSTEM_OUT">
             <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %class{1}.%method:%line - %msg%n"/>
         </Console>
-        <File name="File" fileName="src\\test\\java\\org\\example\\logdata\\applog.log" append="true">
+        <!-- File Appender -->
+        <File name="File" fileName="src/test/java/org/example/logdata/applog.log" append="true">
             <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %class{1}.%method:%line - %msg%n"/>
         </File>
     </Appenders>
     <Loggers>
-        <Logger name="com.sdetadda" level="info" additivity="true">
-            <AppenderRef ref="Console"/>
-        </Logger>
         <Root level="info">
-            <AppenderRef ref="File"/>
+            <AppenderRef ref="Console" level="info"/>
+            <AppenderRef ref="File" level="info"/>
         </Root>
     </Loggers>
 </Configuration>
