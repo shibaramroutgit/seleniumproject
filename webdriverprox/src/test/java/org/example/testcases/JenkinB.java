@@ -12,6 +12,8 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
+import java.io.IOException;
+
 public class JenkinB extends TestBase {
     public JenkinsBasicPage jenkinsBasicPage;
     public SoftAssert softAssert;
@@ -28,11 +30,12 @@ public class JenkinB extends TestBase {
 
     }
     @Test
-    public void TC1() throws InterruptedException {
+    public void TC1() throws InterruptedException, IOException {
         System.out.println("TC1");
         jenkinsBasicPage.navigateToJenkinsBasicMenu();
         logger.info("AB1");
         String val = jenkinsBasicPage.validateJenkinsPageHeader();
+        getScreenshotDriver();
         softAssert.assertEquals(val,"Jenkins Basic");
         softAssert.assertAll();
         logger.info("All2");

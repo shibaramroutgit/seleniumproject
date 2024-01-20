@@ -9,6 +9,8 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
+import java.io.IOException;
+
 public class TestNG extends TestBase {
 public TestngParalela testngParalela;
 public SoftAssert softAssert;
@@ -35,13 +37,14 @@ public SoftAssert softAssert;
         logger.info("All6");
     }
     @Test
-    public void TC2() throws InterruptedException {
+    public void TC2() throws InterruptedException, IOException {
         System.out.println("TC2");
         testngParalela.navigateToTestngParalelaMenu();
         logger.info("AB7");
         String val = testngParalela.validateTestngPageHeader();
         softAssert.assertEquals(val,"TestNG Paralela");
         softAssert.assertAll();
+        getScreenshotWebElement(testngParalela.HeaderText);
         logger.info("All8");
     }
 

@@ -4,14 +4,22 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.example.pages.JenkinsBasicPage;
 import org.example.pages.TestngParalela;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.testng.annotations.BeforeSuite;
 import org.testng.asserts.SoftAssert;
+import org.apache.commons.io.FileUtils;
 
+import java.io.File;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.time.Duration;
+import java.util.Date;
 
 public class TestBase {
 
@@ -19,6 +27,7 @@ public class TestBase {
     public  String browserName = String.valueOf(BrowserTypes.CHROME);
     public   SoftAssert  softAssert;
     public  final Logger logger = LogManager.getLogger(getClass());
+
 
 
     public WebDriver setupDriver() throws InterruptedException {
@@ -47,9 +56,39 @@ public class TestBase {
         driver.quit();
         System.out.println(driver.toString());
     }
+    public String removeSpecialCharacters(String string)
+    {
+        // This regex will keep only alphanumeric characters
+        return string.replaceAll("[^a-zA-Z0-9]", "");
+    }
 
+    public Date getDate()
+    {
+        return  new Date();
+    }
 
+    public String getFormatedDate(Date date)
+    {
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyyMMddHHmmss");
+        return simpleDateFormat.format(date);
+    }
+    public void getScreenshotWebElement(WebElement element) throws IOException {
+        Date date =getDate();
+        String stringDate  = getFormatedDate(date);
+        String timeStampName = removeSpecialCharacters(stringDate);
+        String fileName = timeStampName +".jpg";
+        File file = ((TakesScreenshot)element).getScreenshotAs(OutputType.FILE);
+        FileUtils.copyFile(file,new File("src\\test\\screenshots\\"+fileName));
+    }
 
+    public void getScreenshotDriver() throws IOException {
+        Date date =getDate();
+        String stringDate  = getFormatedDate(date);
+        String timeStampName = removeSpecialCharacters(stringDate);
+        String fileName = timeStampName +".jpg";
+        File file = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+        FileUtils.copyFile(file,new File("src\\test\\screenshots\\"+fileName));
+    }
     public TestngParalela getTestngParalela()
     {
         return new TestngParalela(driver);
