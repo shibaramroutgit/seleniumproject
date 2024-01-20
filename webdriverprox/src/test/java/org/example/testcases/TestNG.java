@@ -3,6 +3,7 @@ package org.example.testcases;
 import org.example.base.TestBase;
 import org.example.pages.JenkinsBasicPage;
 import org.example.pages.TestngParalela;
+import org.example.reportListener.TestListener;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -44,7 +45,6 @@ public SoftAssert softAssert;
         String val = testngParalela.validateTestngPageHeader();
         softAssert.assertEquals(val,"TestNG Paralela");
         softAssert.assertAll();
-        getScreenshotWebElement(testngParalela.HeaderText);
         logger.info("All8");
     }
 

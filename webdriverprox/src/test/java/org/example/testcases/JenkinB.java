@@ -3,6 +3,7 @@ package org.example.testcases;
 
 import org.example.base.TestBase;
 import org.example.pages.JenkinsBasicPage;
+import org.example.reportListener.TestListener;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -35,7 +36,6 @@ public class JenkinB extends TestBase {
         jenkinsBasicPage.navigateToJenkinsBasicMenu();
         logger.info("AB1");
         String val = jenkinsBasicPage.validateJenkinsPageHeader();
-        getScreenshotDriver();
         softAssert.assertEquals(val,"Jenkins Basic");
         softAssert.assertAll();
         logger.info("All2");
